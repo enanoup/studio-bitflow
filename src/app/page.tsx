@@ -1,4 +1,5 @@
 import ScrollySection from '@/components/ScrollySection';
+import HeroBackground from '@/components/HeroBackground';
 import { 
   Check, 
   ArrowRight, 
@@ -40,41 +41,45 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 1. HERO SECTION */}
+{/* 1. HERO SECTION CON CARRUSEL & PARALLAX */}
       <section className="relative min-h-screen pt-36 pb-20 flex items-center justify-center border-b border-subtleBorder/50 overflow-hidden">
-        {/* Glow Central Cyan */}
-        <div className="absolute w-[500px] h-[500px] bg-electricCyan/10 rounded-full blur-[140px] pointer-events-none z-0" />
+        
+        {/* Fondo interactivo animado */}
+        <HeroBackground />
 
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-subtleBorder bg-darkVoid/80 mb-6 font-mono text-xs text-terminalLime">
+        {/* Glow de acento cyber */}
+        <div className="absolute w-[500px] h-[500px] bg-electricCyan/10 rounded-full blur-[140px] pointer-events-none z-10" />
+
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-subtleBorder bg-darkVoid/90 backdrop-blur-md mb-6 font-mono text-xs text-terminalLime shadow-lg">
             <span className="w-2 h-2 rounded-full bg-terminalLime animate-pulse" />
             Para negocios que merecen ser encontrados
           </div>
 
-          <h1 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-tight mb-6 text-pureSnow">
+          <h1 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-tight mb-6 text-pureSnow drop-shadow-md">
             Si tus clientes no te encuentran, <span className="text-electricCyan">para ellos no existes.</span>
           </h1>
 
-          <p className="font-body text-techMuted text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="font-body text-techMuted text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow">
             Dejas de perder ventas cuando tu negocio tiene un sitio que explica lo que haces y hace que te escriban por WhatsApp.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <a 
               href="#contacto" 
-              className="w-full sm:w-auto bg-electricCyan text-obsidian font-display font-semibold px-8 py-4 rounded-xl text-base transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]"
+              className="w-full sm:w-auto bg-electricCyan text-obsidian font-display font-semibold px-8 py-4 rounded-xl text-base transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,240,255,0.6)]"
             >
               Quiero que me encuentren
             </a>
             <a 
               href="#paquete" 
-              className="w-full sm:w-auto border border-subtleBorder hover:border-electricCyan/50 bg-darkVoid px-8 py-4 rounded-xl text-base font-display text-pureSnow transition-all"
+              className="w-full sm:w-auto border border-subtleBorder/80 hover:border-electricCyan/50 bg-darkVoid/80 backdrop-blur-md px-8 py-4 rounded-xl text-base font-display text-pureSnow transition-all"
             >
               Ver qué incluye
             </a>
           </div>
 
-          <div className="inline-block p-4 rounded-lg bg-darkVoid/90 border border-subtleBorder text-sm font-mono text-techMuted">
+          <div className="inline-block p-4 rounded-lg bg-darkVoid/90 backdrop-blur-md border border-subtleBorder text-sm font-mono text-techMuted shadow-xl">
             ⚡ Desde <strong className="text-electricCyan">$5,900 MXN</strong> | Dominio, hosting y correos incluidos
           </div>
         </div>
