@@ -77,9 +77,11 @@ export default function Home() {
         <div className="absolute w-[500px] h-[500px] bg-electricCyan/10 rounded-full blur-[140px] pointer-events-none z-10" />
 
         <div className="max-w-4xl mx-auto px-6 text-center relative z-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-subtleBorder bg-darkVoid/90 backdrop-blur-md mb-6 font-mono text-xs text-terminalLime shadow-lg">
+          
+          {/* BADGE DE ESCASEZ Y LANZAMIENTO */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-terminalLime/40 bg-darkVoid/90 backdrop-blur-md mb-6 font-mono text-xs text-terminalLime shadow-lg">
             <span className="w-2 h-2 rounded-full bg-terminalLime animate-pulse" />
-            Para negocios que merecen ser encontrados
+            🔥 OFERTA DE LANZAMIENTO // Solo 10 cupos disponibles
           </div>
 
           <h1 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-tight mb-6 text-pureSnow drop-shadow-md">
@@ -105,9 +107,27 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="inline-block p-4 rounded-lg bg-darkVoid/90 backdrop-blur-md border border-subtleBorder text-sm font-mono text-techMuted shadow-xl">
-            ⚡ Desde <strong className="text-electricCyan">$5,900 MXN</strong> | Dominio, hosting y correos incluidos
-          </div>
+          {/* CAJA DE PRECIO CON PULSO DE ESCALA Y GLOW CONTINUO */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.04, 1],
+              boxShadow: [
+                '0px 0px 15px rgba(0,240,255,0.15)',
+                '0px 0px 30px rgba(0,240,255,0.35)',
+                '0px 0px 15px rgba(0,240,255,0.15)'
+              ]
+            }}
+            transition={{ 
+              duration: 2.5, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            className="inline-block p-4 rounded-lg bg-darkVoid/90 backdrop-blur-md border border-electricCyan text-sm font-mono text-techMuted"
+          >
+            ⚡ Lanzamiento: <span className="line-through text-techMuted/60 mr-1.5">$12,000</span>
+            <strong className="text-electricCyan text-base">$5,900 MXN</strong> 
+            <span className="text-xs text-terminalLime block sm:inline sm:ml-2 font-bold">(Ahorras $6,100 MXN)</span>
+          </motion.div>
         </div>
       </section>
 

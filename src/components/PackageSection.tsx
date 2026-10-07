@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Check, Zap } from 'lucide-react';
+import { Check, Zap, Flame } from 'lucide-react';
 
 const FEATURES = [
   'Sitio web profesional de una página, diseñado para que te contacten',
@@ -42,17 +42,18 @@ export default function PackageSection() {
 
       <div className="sticky top-0 h-screen flex flex-col justify-center items-center px-4 sm:px-6 overflow-hidden">
 
-        {/* ENCABEZADO */}
+        {/* ENCABEZADO CON BADGE EN VIVO */}
         <div className="text-center mb-3 sm:mb-6 max-w-2xl">
-          <span className="font-mono text-[10px] sm:text-xs text-terminalLime px-2.5 sm:px-3 py-1 rounded bg-darkVoid border border-subtleBorder">
-            // PRECIO DE LANZAMIENTO
+          <span className="inline-flex items-center gap-1.5 font-mono text-[10px] sm:text-xs text-terminalLime px-2.5 sm:px-3 py-1 rounded bg-darkVoid border border-terminalLime/40 shadow-lg">
+            <Flame className="w-3.5 h-3.5 text-terminalLime animate-bounce" />
+            TARIFA ESPECIAL DE APERTURA
           </span>
           <h2 className="font-display font-bold text-2xl sm:text-4xl mt-2 sm:mt-3 text-pureSnow">
             Todo lo que necesitas para salir al aire
           </h2>
         </div>
 
-        {/* TARJETA */}
+        {/* TARJETA DE PRECIO CON ESCASEZ */}
         <div className="max-w-3xl w-full p-5 sm:p-10 rounded-2xl border-2 border-electricCyan bg-darkVoid/95 backdrop-blur-md relative shadow-[0_0_40px_rgba(0,240,255,0.15)]">
           
           {/* ENCABEZADO DE PRECIO */}
@@ -64,10 +65,22 @@ export default function PackageSection() {
               <h3 className="font-display font-bold text-xl sm:text-3xl text-pureSnow">Paquete Business</h3>
               <p className="text-techMuted text-xs sm:text-sm">Sitio web profesional de una página</p>
             </div>
+
             <div className="text-left sm:text-right">
-              <span className="font-display font-bold text-3xl sm:text-5xl text-electricCyan">$5,900</span>
-              <span className="text-xs sm:text-sm text-techMuted font-mono"> MXN</span>
-              <p className="text-[10px] sm:text-xs text-techMuted mt-0.5 sm:mt-1">Pago único (50% anticipo / 50% al entregar)</p>
+              {/* PRECIO TACHADO Y PRECIO DE LANZAMIENTO */}
+              <div className="flex items-baseline gap-2 sm:justify-end">
+                <span className="font-mono text-xs sm:text-base text-techMuted/60 line-through">$12,000</span>
+                <span className="font-display font-bold text-3xl sm:text-5xl text-electricCyan">$5,900</span>
+                <span className="text-xs sm:text-sm text-techMuted font-mono"> MXN</span>
+              </div>
+              
+              {/* INDICADOR DE CUPOS RESTANTES */}
+              <div className="flex items-center sm:justify-end gap-1.5 mt-1">
+                <span className="w-2 h-2 rounded-full bg-terminalLime animate-pulse" />
+                <p className="font-mono text-[11px] sm:text-xs text-terminalLime">
+                  Quedan 3 de 10 lugares disponibles
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -102,7 +115,7 @@ export default function PackageSection() {
             })}
           </div>
 
-          {/* BOTÓN CTA */}
+          {/* BOTÓN CTA CON AVISO DE ESCASEZ */}
           <motion.div 
             style={{ opacity: buttonOpacity, scale: buttonScale }}
             className="pt-1 sm:pt-2"
@@ -112,10 +125,10 @@ export default function PackageSection() {
               style={{ boxShadow: buttonGlow }}
               className="block w-full text-center bg-terminalLime text-pureSnow font-display font-bold py-3 sm:py-4 rounded-xl text-xs sm:text-lg transition-transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              Quiero que mi negocio se vea como merece
+              Aprovechar precio de lanzamiento
             </motion.a>
             <p className="text-center font-mono text-[10px] sm:text-xs text-techMuted mt-2 sm:mt-3">
-              Te respondo personalmente en menos de 24 horas.
+              ⚡ Al agotar los 10 lugares, el paquete volverá a su costo regular de $12,000 MXN.
             </p>
           </motion.div>
 
