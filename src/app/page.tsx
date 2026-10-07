@@ -50,7 +50,7 @@ export default function Home() {
               href="#contacto" 
               className="bg-electricCyan text-obsidian font-display font-semibold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded text-xs sm:text-sm transition-all duration-300 hover:shadow-[0_0_24px_rgba(0,240,255,0.4)] text-center leading-tight"
             >
-              Quiero que me encuentren
+              Quiero crear mi sitio web
             </a>
           </div>
         </div>
