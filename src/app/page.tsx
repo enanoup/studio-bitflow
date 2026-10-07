@@ -117,7 +117,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
-              href="https://wa.me/5215500000000?text=Hola,%20me%20interesa%20el%20Paquete%20Business%20de%20Studio%20Bitflow."
+              href="https://wa.me/525554321875?text=Hola%20Studio%20Bitflow%2C%20vi%20su%20sitio%20web%20y%20me%20interesa%20el%20Paquete%20Business%20para%20mi%20negocio.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto bg-electricCyan text-obsidian font-display font-semibold px-8 py-4 rounded-xl text-base transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,240,255,0.6)] text-center"
