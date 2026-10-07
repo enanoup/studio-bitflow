@@ -15,9 +15,10 @@ export default function HeroBackground() {
 
   // Animación parallax vinculada al scroll de la ventana
   const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 800], ['0%', '25%']);
-  const scaleParallax = useTransform(scrollY, [0, 800], [1, 1.12]);
-  const opacityOverlay = useTransform(scrollY, [0, 600], [0.55, 0.92]);
+  const yParallax = useTransform(scrollY, [0, 800], ['0%', '30%']);
+  const scaleParallax = useTransform(scrollY, [0, 800], [1, 1.14]);
+  // Subimos la opacidad base de 0.55 a 0.82 para que sea más oscuro desde el inicio
+  const opacityOverlay = useTransform(scrollY, [0, 600], [0.82, 0.98]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -49,10 +50,13 @@ export default function HeroBackground() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Capa de degradado cyber/dark para garantizar legibilidad del texto */}
+      {/* Capa de oscurecimiento extra (base sólida) */}
+      <div className="absolute inset-0 bg-obsidian/40 backdrop-blur-[1px]" />
+
+      {/* Capa de degradado cyber/dark reforzado para legibilidad total del texto */}
       <motion.div 
         style={{ opacity: opacityOverlay }}
-        className="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-obsidian/70 to-obsidian border-b border-subtleBorder/40"
+        className="absolute inset-0 bg-gradient-to-b from-obsidian/95 via-obsidian/85 to-obsidian border-b border-subtleBorder/40"
       />
 
       {/* Indicadores de diapositiva (Puntos del carrusel) */}
