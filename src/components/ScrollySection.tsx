@@ -68,7 +68,7 @@ export default function ScrollySection() {
           {/* ENCABEZADO */}
           <div className="text-center mb-6 sm:mb-14">
             <span className="font-mono text-[10px] sm:text-xs text-terminalLime px-2.5 sm:px-3 py-1 rounded bg-darkVoid border border-subtleBorder">
-              // SYSTEM OVERHAUL
+              La diferencia
             </span>
             <h2 className="font-display font-bold text-2xl sm:text-5xl mt-2 sm:mt-3 text-pureSnow leading-tight">
               La diferencia entre perseguir <br className="hidden sm:inline" /> y recibir clientes
@@ -84,7 +84,7 @@ export default function ScrollySection() {
               className="p-5 sm:p-9 rounded-2xl border border-subtleBorder bg-darkVoid/85 backdrop-blur-md flex flex-col justify-between transition-all"
             >
               <div>
-                <span className="font-mono text-[10px] sm:text-xs text-red-400/80 block mb-2 sm:mb-3">// EL PROBLEMA ACTUAL</span>
+                <span className="font-mono text-[10px] sm:text-xs text-red-400/80 block mb-2 sm:mb-3">EL PROBLEMA</span>
                 <h3 className="font-display font-bold text-base sm:text-2xl text-pureSnow mb-3 sm:mb-5 leading-snug">
                   Publicas, respondes mensajes, repites precios... y aun así sientes que no avanzas.
                 </h3>
@@ -112,7 +112,7 @@ export default function ScrollySection() {
               className="p-5 sm:p-9 rounded-2xl border-2 border-electricCyan bg-darkVoid/95 backdrop-blur-md flex flex-col justify-between"
             >
               <div>
-                <span className="font-mono text-[10px] sm:text-xs text-electricCyan block mb-2 sm:mb-3">// EL ESTADO DESEADO</span>
+                <span className="font-mono text-[10px] sm:text-xs text-electricCyan block mb-2 sm:mb-3">LO QUE CAMBIA</span>
                 <h3 className="font-display font-bold text-base sm:text-2xl text-pureSnow mb-3 sm:mb-5 leading-snug">
                   Imagina que un cliente llega, entiende lo que ofreces y te escribe listo para comprar.
                 </h3>

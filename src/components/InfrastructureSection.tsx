@@ -60,7 +60,7 @@ export default function InfrastructureSection() {
           variants={fadeInVariants}
         >
           <span className="font-mono text-xs text-terminalLime px-3 py-1 rounded bg-darkVoid/90 backdrop-blur-md border border-subtleBorder inline-block mb-6 shadow-lg">
-            // NEXT LEVEL INFRASTRUCTURE
+            PARA CUANDO QUIERAS IR POR MÁS
           </span>
         </motion.div>
 

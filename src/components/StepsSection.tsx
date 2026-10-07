@@ -71,7 +71,7 @@ export default function StepsSection() {
             className="text-center mb-6 sm:mb-16 origin-center"
           >
             <span className="font-mono text-[10px] sm:text-xs text-terminalLime px-2.5 sm:px-3 py-1 rounded bg-darkVoid/90 backdrop-blur-md border border-subtleBorder shadow-md">
-              // PIPELINE DE TRABAJO
+              CÓMO TRABAJAMOS
             </span>
             <h2 className="font-display font-bold text-2xl sm:text-5xl mt-2 sm:mt-4 text-pureSnow drop-shadow-md">
               Sin tecnicismos, sin vueltas. En 4 pasos.
@@ -101,7 +101,7 @@ export default function StepsSection() {
                 >
                   <div>
                     <span className="font-mono text-xs sm:text-sm text-electricCyan block mb-1.5 sm:mb-4">
-                      {step.num} //
+                      {step.num}
                     </span>
                     <h3 className="font-display font-bold text-lg sm:text-2xl text-pureSnow mb-1.5 sm:mb-3">
                       {step.title}

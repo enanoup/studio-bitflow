@@ -27,7 +27,7 @@ export default function ClientsMarquee() {
 
       <div className="max-w-6xl mx-auto px-6 mb-4 text-center">
         <p className="font-mono text-xs text-techMuted uppercase tracking-widest">
-          // MARCAS Y NEGOCIOS QUE CONFÍAN EN STUDIO BITFLOW
+          MARCAS Y NEGOCIOS QUE CONFÍAN EN STUDIO BITFLOW
         </p>
       </div>
 

@@ -1,4 +1,6 @@
 'use client';
+
+import { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 
 import ScrollySection from '@/components/ScrollySection';
@@ -9,19 +11,7 @@ import InfrastructureSection from '@/components/InfrastructureSection';
 import ClientsMarquee from '@/components/ClientsMarquee';
 import ContactSection from '@/components/ContactSection';
 import FaqSection from '@/components/FaqSection';
-
-import { 
-  Check, 
-  ArrowRight, 
-  MessageSquare, 
-  Send, 
-  HelpCircle, 
-  Layers, 
-  ShieldCheck, 
-  Clock, 
-  Zap,
-  ChevronDown
-} from 'lucide-react';
+import PrivacyModal from '@/components/PrivacyModal';
 
 const fadeInVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -37,6 +27,8 @@ const fadeInVariants: Variants = {
 };
 
 export default function Home() {
+  const [isFooterPrivacyOpen, setIsFooterPrivacyOpen] = useState<boolean>(false);
+
   return (
     <main className="bg-obsidian text-pureSnow font-body min-h-screen selection:bg-electricCyan selection:text-obsidian">
       
@@ -54,9 +46,6 @@ export default function Home() {
           </a>
           
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-            <span className="hidden md:inline-block font-mono text-xs text-terminalLime border border-terminalLime/30 px-3 py-1 rounded bg-darkVoid">
-              // STATUS: 200 OK
-            </span>
             <a 
               href="#contacto" 
               className="bg-electricCyan text-obsidian font-display font-semibold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded text-xs sm:text-sm transition-all duration-300 hover:shadow-[0_0_24px_rgba(0,240,255,0.4)] text-center leading-tight"
@@ -78,81 +67,96 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto px-6 text-center relative z-20">
           
-          {/* BADGE DE ESCASEZ Y LANZAMIENTO */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-terminalLime/40 bg-darkVoid/90 backdrop-blur-md mb-6 font-mono text-xs text-terminalLime shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-terminalLime animate-pulse" />
-            🔥 OFERTA DE LANZAMIENTO // Solo 10 cupos disponibles
+          {/* BARRA DE OFERTA DEL HERO */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded border border-electricCyan/40 bg-darkVoid/90 backdrop-blur-md mb-8 font-mono text-xs text-electricCyan shadow-lg">
+            <span>🔥 Precio de lanzamiento vigente hasta el 31 de octubre de 2026</span>
           </div>
 
-          <h1 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-tight mb-6 text-pureSnow drop-shadow-md">
-            Si tus clientes no te encuentran, <span className="text-electricCyan">para ellos no existes.</span>
+          <h1 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] mb-6 text-pureSnow drop-shadow-md">
+            Tu negocio merece un sitio web que{' '}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-electricCyan via-cyan-400 to-indigo-400">
+              realmente venda.
+            </span>
           </h1>
 
-          <p className="font-body text-techMuted text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow">
-            Dejas de perder ventas cuando tu negocio tiene un sitio que explica lo que haces y hace que te escriban por WhatsApp.
+          <p className="font-body text-techMuted text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed font-light drop-shadow">
+            Diseño web profesional, infraestructura de alto rendimiento y estrategia orientada a conversión. Sin enredos técnicos. Entregado en 7 a 10 días hábiles.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <a 
-              href="#contacto" 
-              className="w-full sm:w-auto bg-electricCyan text-obsidian font-display font-semibold px-8 py-4 rounded-xl text-base transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,240,255,0.6)]"
+          {/* BLOQUE DE PRECIO DEL HERO */}
+          <div className="flex flex-col items-center justify-center mb-10">
+            <motion.div 
+              animate={{ 
+                scale: [1, 1.02, 1],
+                boxShadow: [
+                  '0px 0px 15px rgba(0,240,255,0.15)',
+                  '0px 0px 30px rgba(0,240,255,0.35)',
+                  '0px 0px 15px rgba(0,240,255,0.15)'
+                ]
+              }}
+              transition={{ 
+                duration: 2.5, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="inline-flex flex-col items-center p-5 rounded-2xl bg-darkVoid/90 backdrop-blur-md border border-electricCyan max-w-md w-full shadow-2xl"
             >
-              Quiero que me encuentren
+              <p className="text-xs sm:text-sm text-pureSnow/90 font-mono mb-1">
+                ⚡ Proyectos similares desde $10,900 MXN. Precio de lanzamiento:
+              </p>
+              <div className="my-1">
+                <span className="text-3xl sm:text-4xl font-extrabold text-electricCyan font-mono tracking-tight">
+                  $5,900 MXN
+                </span>
+              </div>
+              <p className="text-[11px] text-techMuted/70 font-light mt-1">
+                Menos de $500 al mes durante el primer año.
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a 
+              href="https://wa.me/5215500000000?text=Hola,%20me%20interesa%20el%20Paquete%20Business%20de%20Studio%20Bitflow."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-electricCyan text-obsidian font-display font-semibold px-8 py-4 rounded-xl text-base transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,240,255,0.6)] text-center"
+            >
+              Aprovechar oferta por WhatsApp
             </a>
             <a 
               href="#paquete" 
-              className="w-full sm:w-auto border border-subtleBorder/80 hover:border-electricCyan/50 bg-darkVoid/80 backdrop-blur-md px-8 py-4 rounded-xl text-base font-display text-pureSnow transition-all"
+              className="w-full sm:w-auto border border-subtleBorder/80 hover:border-electricCyan/50 bg-darkVoid/80 backdrop-blur-md px-8 py-4 rounded-xl text-base font-display text-pureSnow transition-all text-center"
             >
               Ver qué incluye
             </a>
           </div>
 
-          {/* CAJA DE PRECIO CON PULSO DE ESCALA Y GLOW CONTINUO */}
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.04, 1],
-              boxShadow: [
-                '0px 0px 15px rgba(0,240,255,0.15)',
-                '0px 0px 30px rgba(0,240,255,0.35)',
-                '0px 0px 15px rgba(0,240,255,0.15)'
-              ]
-            }}
-            transition={{ 
-              duration: 2.5, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
-            className="inline-block p-4 rounded-lg bg-darkVoid/90 backdrop-blur-md border border-electricCyan text-sm font-mono text-techMuted"
-          >
-            ⚡ Lanzamiento: <span className="line-through text-techMuted/60 mr-1.5">$12,000</span>
-            <strong className="text-electricCyan text-base">$5,900 MXN</strong> 
-            <span className="text-xs text-terminalLime block sm:inline sm:ml-2 font-bold">(Ahorras $6,100 MXN)</span>
-          </motion.div>
         </div>
       </section>
 
-      {/* CARRUSEL DE CLIENTES (PRUEBA SOCIAL DELGADA) */}
+      {/* CARRUSEL DE CLIENTES */}
       <ClientsMarquee />
 
-      {/* 2 & 3. DOLOR & TRANSFORMACIÓN (SCROLLYTELLING ANIMADO) */}
+      {/* DOLOR & TRANSFORMACIÓN */}
       <ScrollySection />
 
-      {/* 4. PAQUETE BUSINESS ANIMADO */}
+      {/* PAQUETE BUSINESS */}
       <PackageSection />
 
-      {/* 5. CÓMO TRABAJAMOS (PIPELINE EN 4 PASOS) */}
+      {/* CÓMO TRABAJAMOS */}
       <StepsSection />
 
-      {/* 6. SECCIÓN FUNNEL / SISTEMA DE VENTAS */}
+      {/* INFRAESTRUCTURA Y SISTEMA */}
       <InfrastructureSection />
 
-      {/* 7. PREGUNTAS FRECUENTES (FAQ) */}
+      {/* PREGUNTAS FRECUENTES */}
       <FaqSection />
 
-      {/* 8. CIERRE & CONTACTO */}
+      {/* CIERRE & CONTACTO */}
       <ContactSection />
 
-      {/* FOOTER ANIMADO */}
+      {/* FOOTER ANIMADO CON ENLACE DE PRIVACIDAD */}
       <footer className="py-8 border-t border-subtleBorder bg-obsidian text-center font-mono text-xs text-techMuted overflow-hidden">
         <motion.div 
           custom={0}
@@ -169,16 +173,31 @@ export default function Home() {
           />
         </motion.div>
 
-        <motion.p
+        <motion.div
           custom={0.15}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeInVariants}
+          className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6"
         >
-          © Studio Bitflow // All Rights Reserved [STATUS: 200 OK]
-        </motion.p>
+          <p>© Studio Bitflow // Todos los derechos reservados</p>
+          <span className="hidden sm:inline text-subtleBorder">•</span>
+          <button
+            type="button"
+            onClick={() => setIsFooterPrivacyOpen(true)}
+            className="text-techMuted hover:text-electricCyan underline transition cursor-pointer"
+          >
+            Aviso de privacidad
+          </button>
+        </motion.div>
       </footer>
+
+      {/* Modal Pop-up para el Footer */}
+      <PrivacyModal
+        isOpen={isFooterPrivacyOpen}
+        onClose={() => setIsFooterPrivacyOpen(false)}
+      />
 
     </main>
   );

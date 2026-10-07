@@ -113,7 +113,7 @@ export default function FaqSection() {
           className="text-center mb-8 sm:mb-12"
         >
           <span className="font-mono text-[10px] sm:text-xs text-terminalLime px-2.5 sm:px-3 py-1 rounded bg-darkVoid border border-subtleBorder">
-            // KNOWLEDGE BASE
+            RESOLVEMOS TUS DUDAS
           </span>
           <h2 className="font-display font-bold text-2xl sm:text-4xl mt-2 sm:mt-3 text-pureSnow">
             Preguntas Frecuentes

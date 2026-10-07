@@ -15,7 +15,7 @@ export default function HeroBackground() {
 
   // Animación parallax vinculada al scroll de la ventana
   const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 800], ['0%', '30%']);
+  const yParallax = useTransform(scrollY, [0, 800], ['0%', '35%']);
   const scaleParallax = useTransform(scrollY, [0, 800], [1, 1.14]);
   // Subimos la opacidad base de 0.55 a 0.82 para que sea más oscuro desde el inicio
   const opacityOverlay = useTransform(scrollY, [0, 600], [0.82, 0.98]);
