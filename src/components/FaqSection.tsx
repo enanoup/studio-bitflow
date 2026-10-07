@@ -50,7 +50,7 @@ const SPARKLES = [
 ];
 
 const fadeInVariants: Variants = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 20 },
   visible: (customDelay: number = 0) => ({
     opacity: 1,
     y: 0,
@@ -76,7 +76,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section ref={containerRef} className="py-28 bg-obsidian border-t border-subtleBorder relative overflow-hidden">
+    <section ref={containerRef} className="py-16 sm:py-24 bg-obsidian border-t border-subtleBorder relative overflow-hidden">
       
       {/* CAPA DE DESTELLOS ANIMADOS EN SCROLL */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -101,7 +101,7 @@ export default function FaqSection() {
         })}
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* ENCABEZADO CON FADE IN */}
         <motion.div
@@ -110,25 +110,25 @@ export default function FaqSection() {
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
           variants={fadeInVariants}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12"
         >
-          <span className="font-mono text-xs text-terminalLime px-3 py-1 rounded bg-darkVoid border border-subtleBorder">
+          <span className="font-mono text-[10px] sm:text-xs text-terminalLime px-2.5 sm:px-3 py-1 rounded bg-darkVoid border border-subtleBorder">
             // KNOWLEDGE BASE
           </span>
-          <h2 className="font-display font-bold text-3xl sm:text-5xl mt-4 text-pureSnow">
+          <h2 className="font-display font-bold text-2xl sm:text-4xl mt-2 sm:mt-3 text-pureSnow">
             Preguntas Frecuentes
           </h2>
         </motion.div>
 
-        {/* LISTA DE PREGUNTAS CON FADE IN SECUENCIAL */}
-        <div className="space-y-4">
+        {/* LISTA COMPACTA DE PREGUNTAS EN GRID */}
+        <div className="grid md:grid-cols-2 gap-3 sm:gap-4 items-start">
           {FAQS.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
               <motion.div
                 key={index}
-                custom={index * 0.08}
+                custom={index * 0.05}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.15 }}
@@ -137,11 +137,11 @@ export default function FaqSection() {
               >
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-pureSnow focus:outline-none"
+                  className="w-full p-3.5 sm:p-4 text-left flex items-center justify-between gap-3 font-display font-bold text-sm sm:text-base text-pureSnow focus:outline-none"
                 >
                   <span>{faq.question}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-electricCyan shrink-0 transition-transform duration-300 ${
+                    className={`w-4 h-4 sm:w-5 sm:h-5 text-electricCyan shrink-0 transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : 'rotate-0'
                     }`}
                   />
@@ -153,10 +153,10 @@ export default function FaqSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      transition={{ duration: 0.25, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 pt-1 text-sm text-techMuted font-body leading-relaxed border-t border-subtleBorder/40">
+                      <div className="px-3.5 pb-3.5 sm:px-4 sm:pb-4 pt-1 text-xs sm:text-sm text-techMuted font-body leading-relaxed border-t border-subtleBorder/40">
                         {faq.answer}
                       </div>
                     </motion.div>

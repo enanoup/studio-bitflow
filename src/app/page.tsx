@@ -40,26 +40,26 @@ export default function Home() {
   return (
     <main className="bg-obsidian text-pureSnow font-body min-h-screen selection:bg-electricCyan selection:text-obsidian">
       
-     {/* NAVBAR GLASSMORPHISM */}
+      {/* NAVBAR GLASSMORPHISM RESPONSIVO */}
       <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-obsidian/80 border-b border-subtleBorder/50">
-        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2">
           
           {/* LOGO DE IMAGEN */}
-          <a href="#" className="flex items-center">
+          <a href="#" className="flex items-center shrink-0">
             <img 
               src="/images/Logo_Bitflow_Horiz_PNG.png" 
               alt="Studio Bitflow Logo" 
-              className="h-14 w-auto object-contain"
+              className="h-12 sm:h-14 w-auto object-contain"
             />
           </a>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
             <span className="hidden md:inline-block font-mono text-xs text-terminalLime border border-terminalLime/30 px-3 py-1 rounded bg-darkVoid">
               // STATUS: 200 OK
             </span>
             <a 
               href="#contacto" 
-              className="bg-electricCyan text-obsidian font-display font-semibold px-5 py-2.5 rounded text-sm transition-all duration-300 hover:shadow-[0_0_24px_rgba(0,240,255,0.4)]"
+              className="bg-electricCyan text-obsidian font-display font-semibold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded text-xs sm:text-sm transition-all duration-300 hover:shadow-[0_0_24px_rgba(0,240,255,0.4)] text-center leading-tight"
             >
               Quiero que me encuentren
             </a>
@@ -67,8 +67,8 @@ export default function Home() {
         </div>
       </header>
 
-{/* 1. HERO SECTION CON CARRUSEL & PARALLAX */}
-      <section className="relative min-h-screen pt-36 pb-20 flex items-center justify-center border-b border-subtleBorder/50 overflow-hidden">
+      {/* 1. HERO SECTION CON CARRUSEL & PARALLAX */}
+      <section className="relative min-h-screen pt-32 sm:pt-36 pb-20 flex items-center justify-center border-b border-subtleBorder/50 overflow-hidden">
         
         {/* Fondo interactivo animado */}
         <HeroBackground />
@@ -112,27 +112,27 @@ export default function Home() {
       </section>
 
       {/* CARRUSEL DE CLIENTES (PRUEBA SOCIAL DELGADA) */}
-<ClientsMarquee />
+      <ClientsMarquee />
 
       {/* 2 & 3. DOLOR & TRANSFORMACIÓN (SCROLLYTELLING ANIMADO) */}
       <ScrollySection />
 
-
-{/* 4. PAQUETE BUSINESS ANIMADO */}
+      {/* 4. PAQUETE BUSINESS ANIMADO */}
       <PackageSection />
 
       {/* 5. CÓMO TRABAJAMOS (PIPELINE EN 4 PASOS) */}
-     <StepsSection />
+      <StepsSection />
 
       {/* 6. SECCIÓN FUNNEL / SISTEMA DE VENTAS */}
-    <InfrastructureSection />
+      <InfrastructureSection />
 
       {/* 7. PREGUNTAS FRECUENTES (FAQ) */}
-     <FaqSection />
-      {/* 8. CIERRE & CONTACTO */}
-     <ContactSection />
+      <FaqSection />
 
-     {/* FOOTER ANIMADO */}
+      {/* 8. CIERRE & CONTACTO */}
+      <ContactSection />
+
+      {/* FOOTER ANIMADO */}
       <footer className="py-8 border-t border-subtleBorder bg-obsidian text-center font-mono text-xs text-techMuted overflow-hidden">
         <motion.div 
           custom={0}

@@ -47,7 +47,7 @@ export default function StepsSection() {
   return (
     <section ref={targetRef} className="relative h-[260vh] bg-obsidian border-t border-subtleBorder">
       {/* SECCIÓN FIJA (STICKY) */}
-      <div className="sticky top-0 h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
+      <div className="sticky top-0 h-screen flex flex-col justify-center items-center px-4 sm:px-6 overflow-hidden">
         
         {/* IMAGEN DE FONDO CON PARALLAX CORREGIDA */}
         <motion.div 
@@ -68,18 +68,18 @@ export default function StepsSection() {
           {/* ENCABEZADO */}
           <motion.div 
             style={{ opacity: headerOpacity, scale: headerScale, y: headerY }}
-            className="text-center mb-16 origin-center"
+            className="text-center mb-6 sm:mb-16 origin-center"
           >
-            <span className="font-mono text-xs text-terminalLime px-3 py-1 rounded bg-darkVoid/90 backdrop-blur-md border border-subtleBorder shadow-md">
+            <span className="font-mono text-[10px] sm:text-xs text-terminalLime px-2.5 sm:px-3 py-1 rounded bg-darkVoid/90 backdrop-blur-md border border-subtleBorder shadow-md">
               // PIPELINE DE TRABAJO
             </span>
-            <h2 className="font-display font-bold text-3xl sm:text-5xl mt-4 text-pureSnow drop-shadow-md">
+            <h2 className="font-display font-bold text-2xl sm:text-5xl mt-2 sm:mt-4 text-pureSnow drop-shadow-md">
               Sin tecnicismos, sin vueltas. En 4 pasos.
             </h2>
           </motion.div>
 
           {/* GRID DE LAS 4 TARJETAS CON SECUENCIA */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {STEPS.map((step, idx) => {
               const start = 0.15 + idx * 0.18;
               const end = start + 0.15;
@@ -97,16 +97,16 @@ export default function StepsSection() {
                 <motion.div
                   key={step.num}
                   style={{ opacity, y, scale, borderColor: borderGlow }}
-                  className="p-8 rounded-2xl border bg-darkVoid/90 backdrop-blur-md flex flex-col justify-between shadow-xl transition-colors"
+                  className="p-4 sm:p-8 rounded-xl sm:rounded-2xl border bg-darkVoid/90 backdrop-blur-md flex flex-col justify-between shadow-xl transition-colors"
                 >
                   <div>
-                    <span className="font-mono text-sm text-electricCyan block mb-4">
+                    <span className="font-mono text-xs sm:text-sm text-electricCyan block mb-1.5 sm:mb-4">
                       {step.num} //
                     </span>
-                    <h3 className="font-display font-bold text-2xl text-pureSnow mb-3">
+                    <h3 className="font-display font-bold text-lg sm:text-2xl text-pureSnow mb-1.5 sm:mb-3">
                       {step.title}
                     </h3>
-                    <p className="font-body text-sm text-techMuted leading-relaxed">
+                    <p className="font-body text-xs sm:text-sm text-techMuted leading-relaxed">
                       {step.desc}
                     </p>
                   </div>

@@ -17,14 +17,11 @@ const SPARKLES = [
 export default function ScrollySection() {
   const targetRef = useRef<HTMLDivElement>(null);
   
-  // Medimos el scroll a lo largo de los 250vh
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ['start start', 'end end'],
   });
 
-  // ETAPA 1 (0% a 45%): Enfoque en la tarjeta del Problema
-  // ETAPA 2 (45% a 90%): Transición y encendido con brillo de la tarjeta del Estado Deseado
   const leftOpacity = useTransform(scrollYProgress, [0, 0.35, 0.6], [1, 1, 0.3]);
   const leftScale = useTransform(scrollYProgress, [0, 0.35, 0.6], [1, 1, 0.94]);
   const leftBlur = useTransform(scrollYProgress, [0.35, 0.6], ['blur(0px)', 'blur(2px)']);
@@ -41,7 +38,7 @@ export default function ScrollySection() {
     <section ref={targetRef} className="relative h-[250vh] bg-obsidian border-t border-subtleBorder">
       
       {/* SECCIÓN FIXA/STICKY */}
-      <div className="sticky top-0 h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
+      <div className="sticky top-0 h-screen flex flex-col justify-center items-center px-4 sm:px-6 overflow-hidden">
         
         {/* DESTELLOS DE FONDO ALTA VELOCIDAD */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -69,72 +66,72 @@ export default function ScrollySection() {
         <div className="max-w-5xl w-full mx-auto relative z-10">
           
           {/* ENCABEZADO */}
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="font-mono text-xs text-terminalLime px-3 py-1 rounded bg-darkVoid border border-subtleBorder">
+          <div className="text-center mb-6 sm:mb-14">
+            <span className="font-mono text-[10px] sm:text-xs text-terminalLime px-2.5 sm:px-3 py-1 rounded bg-darkVoid border border-subtleBorder">
               // SYSTEM OVERHAUL
             </span>
-            <h2 className="font-display font-bold text-3xl sm:text-5xl mt-3 text-pureSnow">
+            <h2 className="font-display font-bold text-2xl sm:text-5xl mt-2 sm:mt-3 text-pureSnow leading-tight">
               La diferencia entre perseguir <br className="hidden sm:inline" /> y recibir clientes
             </h2>
           </div>
 
           {/* CONTENEDOR DE TARJETAS ANIMADAS */}
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-8 items-stretch">
             
             {/* TARJETA 1: PROBLEMA */}
             <motion.div 
               style={{ opacity: leftOpacity, scale: leftScale, filter: leftBlur }}
-              className="p-7 sm:p-9 rounded-2xl border border-subtleBorder bg-darkVoid/85 backdrop-blur-md flex flex-col justify-between transition-all"
+              className="p-5 sm:p-9 rounded-2xl border border-subtleBorder bg-darkVoid/85 backdrop-blur-md flex flex-col justify-between transition-all"
             >
               <div>
-                <span className="font-mono text-xs text-red-400/80 block mb-3">// EL PROBLEMA ACTUAL</span>
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-pureSnow mb-5 leading-snug">
+                <span className="font-mono text-[10px] sm:text-xs text-red-400/80 block mb-2 sm:mb-3">// EL PROBLEMA ACTUAL</span>
+                <h3 className="font-display font-bold text-base sm:text-2xl text-pureSnow mb-3 sm:mb-5 leading-snug">
                   Publicas, respondes mensajes, repites precios... y aun así sientes que no avanzas.
                 </h3>
 
-                <ul className="space-y-3.5 text-xs sm:text-sm text-techMuted">
-                  <li className="flex items-start gap-3">
-                    <X className="text-red-400 w-5 h-5 shrink-0 mt-0.5" />
+                <ul className="space-y-2.5 sm:space-y-3.5 text-xs sm:text-sm text-techMuted">
+                  <li className="flex items-start gap-2.5 sm:gap-3">
+                    <X className="text-red-400 w-4 sm:w-5 h-4 sm:h-5 shrink-0 mt-0.5" />
                     <span>Dependes de un algoritmo que un día te muestra y al siguiente te esconde.</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <X className="text-red-400 w-5 h-5 shrink-0 mt-0.5" />
-                    <span>El cliente te ve en Instagram, no encuentra precios ni información clara, y se va con quien sí la tiene.</span>
+                  <li className="flex items-start gap-2.5 sm:gap-3">
+                    <X className="text-red-400 w-4 sm:w-5 h-4 sm:h-5 shrink-0 mt-0.5" />
+                    <span>El cliente te ve en Instagram, no encuentra información clara, y se va con la competencia.</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <X className="text-red-400 w-5 h-5 shrink-0 mt-0.5" />
+                  <li className="flex items-start gap-2.5 sm:gap-3">
+                    <X className="text-red-400 w-4 sm:w-5 h-4 sm:h-5 shrink-0 mt-0.5" />
                     <span>Ya no quieres seguir explicando lo mismo cada vez que alguien pregunta.</span>
                   </li>
                 </ul>
               </div>
             </motion.div>
 
-            {/* TARJETA 2: ESTADO DESEADO (SE ENCIENDE Y RESALTA AL BAJAR) */}
+            {/* TARJETA 2: ESTADO DESEADO */}
             <motion.div 
               style={{ opacity: rightOpacity, scale: rightScale, boxShadow: rightGlow }}
-              className="p-7 sm:p-9 rounded-2xl border-2 border-electricCyan bg-darkVoid/95 backdrop-blur-md flex flex-col justify-between"
+              className="p-5 sm:p-9 rounded-2xl border-2 border-electricCyan bg-darkVoid/95 backdrop-blur-md flex flex-col justify-between"
             >
               <div>
-                <span className="font-mono text-xs text-electricCyan block mb-3">// EL ESTADO DESEADO</span>
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-pureSnow mb-5 leading-snug">
+                <span className="font-mono text-[10px] sm:text-xs text-electricCyan block mb-2 sm:mb-3">// EL ESTADO DESEADO</span>
+                <h3 className="font-display font-bold text-base sm:text-2xl text-pureSnow mb-3 sm:mb-5 leading-snug">
                   Imagina que un cliente llega, entiende lo que ofreces y te escribe listo para comprar.
                 </h3>
 
-                <ul className="space-y-4 text-xs sm:text-sm text-pureSnow">
-                  <li className="flex items-start gap-3">
-                    <Zap className="text-electricCyan w-5 h-5 shrink-0 mt-0.5" />
+                <ul className="space-y-2.5 sm:space-y-4 text-xs sm:text-sm text-pureSnow">
+                  <li className="flex items-start gap-2.5 sm:gap-3">
+                    <Zap className="text-electricCyan w-4 sm:w-5 h-4 sm:h-5 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-electricCyan">Te ven profesional desde el primer segundo:</strong> Tu negocio se ve tan serio como tu trabajo, en celular y en computadora.
+                      <strong className="text-electricCyan">Te ven profesional:</strong> Tu negocio se ve tan serio como tu trabajo.
                     </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <Shield className="text-electricCyan w-5 h-5 shrink-0 mt-0.5" />
+                  <li className="flex items-start gap-2.5 sm:gap-3">
+                    <Shield className="text-electricCyan w-4 sm:w-5 h-4 sm:h-5 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-electricCyan">Dejas de repetir lo mismo:</strong> Tu sitio responde las dudas básicas antes de que te escriban.
+                      <strong className="text-electricCyan">Dejas de repetir lo mismo:</strong> Tu sitio responde dudas básicas.
                     </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <MessageSquare className="text-electricCyan w-5 h-5 shrink-0 mt-0.5" />
+                  <li className="flex items-start gap-2.5 sm:gap-3">
+                    <MessageSquare className="text-electricCyan w-4 sm:w-5 h-4 sm:h-5 shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-electricCyan">Te escriben sin fricción:</strong> Un clic y el cliente está en tu WhatsApp.
                     </div>
